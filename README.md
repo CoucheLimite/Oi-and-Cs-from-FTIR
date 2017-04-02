@@ -14,6 +14,8 @@ Another issue is the surface finish of the sample. For the reference sample, it 
 
 A short summary, if the tested sample is DSP as the reference sample but affected by FCA, then the FCA correction is recommended. Howevre, if the reflectance is impacting the spectrum, the straight line correction is recommened. In general, the stright line correction can be accurate enough for almost all cases.
 
+Last important thing, this little software can only import ".csv" file with two columns of data (the first column is the wavenumber and the second is the absorbance). This is the data structure of the exported files of the FTIR tool in our lab. I think other FTIR tools should also be able to export ".csv" files like this. I'm sorry if not.
+
 If you have any trouble or question in using this program, please don't hesitate to contact me by Github or email: yan.zhu@student.unsw.edu.au
 
 Scheduled updated in next version:
