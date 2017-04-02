@@ -19,4 +19,5 @@ If you have any trouble or question in using this program, please don't hesitate
 Scheduled updated in next version:
 1. Add uncertainty to the calculation;
 2. Add warning if the concentration is below the detection limit;
-3. Add alogorithim to remove the ripples in the spectrum due to thin thickness of the sample.
+3. Add alogorithim to remove the ripples in the spectrum due to thin thickness of the sample;
+4. Add a small help function.
