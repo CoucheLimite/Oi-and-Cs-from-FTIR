@@ -191,9 +191,25 @@ class FTIRAnalysis(QWidget):
             self.sampledata=np.genfromtxt(Samplename[0],delimiter=',')
             if self.sampledata.shape[1] != 2:
                 self.sampledata = None
-                self.sampledata.setText('Invalid Data File!')
-                self.sampledata.setStyleSheet("color:red")
+                self.SampleName.setText('Invalid Data File!')
+                self.SampleName.setStyleSheet("color:red")
             elif (self.refdata is not None) and (self.sampledata.shape[0] != self.refdata.shape[0] +1):
+                self.sampledata = None
+                self.diffFCA = None
+                self.poptFCA = None
+                self.PurespectrumFCA = None
+                self.diffCLine = None
+                self.diffOLine = None
+                self.refdata = None
+                self.refdatasubC = None
+                self.refdatasubO = None
+                self.sampledatasubC = None
+                self.sampledatasubO = None
+                self.RefName.clear()
+                self.RefThick.clear()
+                self.SampleName.clear()
+                self.SampleThick.clear()
+                self.plotdata()
                 error_dialog = QErrorMessage()
                 error_dialog.showMessage('The length of sample and reference spectrum does not match!')
                 error_dialog.exec_()
@@ -229,6 +245,22 @@ class FTIRAnalysis(QWidget):
                 self.RefName.setText('Invalid Data File!')
                 self.RefName.setStyleSheet("color:red")
             elif (self.sampledata is not None) and (self.sampledata.shape[0] != self.refdata.shape[0]-1):
+                self.sampledata = None
+                self.diffFCA = None
+                self.poptFCA = None
+                self.PurespectrumFCA = None
+                self.diffCLine = None
+                self.diffOLine = None
+                self.refdata = None
+                self.refdatasubC = None
+                self.refdatasubO = None
+                self.sampledatasubC = None
+                self.sampledatasubO = None
+                self.RefName.clear()
+                self.RefThick.clear()
+                self.SampleName.clear()
+                self.SampleThick.clear()
+                self.plotdata()
                 error_dialog = QErrorMessage()
                 error_dialog.showMessage('The length of sample and reference spectrum does not match!')
                 error_dialog.exec_()
@@ -402,7 +434,6 @@ class FTIRAnalysis(QWidget):
             alphab = Calalpha(1e-4*self.sample_thick,Tb)
             alphaO = alphap - alphab
             OxygenConcentration = 6.28*alphaO
-            print(OxygenConcentration)
             self.ax2.plot([OxygenWn[0],OxygenWn[-1]],[OxygenSpectrum[0],OxygenSpectrum[-1]],'k--')
             self.ax2.plot([OxygenWn[indpeak],OxygenWn[indpeak]],[-np.log10(Tb),OxygenSpectrum[indpeak]],'k--')
             self.ax2.plot(OxygenWn[indpeak],OxygenSpectrum[indpeak],'b*')
